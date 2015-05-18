@@ -47,6 +47,7 @@ Running the above example will print something like
   enums: [],
   messages: [{
     name: 'Point',
+    group: false,
     enums: [],
     messages: [],
     fields: [{
@@ -73,6 +74,7 @@ Running the above example will print something like
     }]
   }, {
     name: 'Line',
+    group: false,
     enums: [],
     messages: [],
     fields: [{
