@@ -5,6 +5,7 @@
   "messages": [
     {
       "name": "SampleMessage",
+      "group": false,
       "enums": [],
       "messages": [],
       "fields": [

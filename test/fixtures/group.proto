@@ -1,0 +1,27 @@
+message OutsideBit {
+  required int32 someField = 1;
+  required group InsideBit = 2 {
+    optional string blahBlah = 1;
+  }
+  optional string lastField = 3;
+}
+
+message SecondMessage {
+  required group OnlyGroup = 2 {
+    optional string fooBar = 1;
+  }
+}
+
+message NestingGoneWild {
+  required group A = 1 {
+    optional group B = 1 {
+      repeated group C = 1 {
+        required group D = 1 {
+          optional group E = 1 {
+            repeated boolean lol = 1;
+          }
+        }
+      }
+    }
+  }
+}

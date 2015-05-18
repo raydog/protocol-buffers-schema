@@ -6,6 +6,7 @@
   "messages": [
     {
       "name": "Point",
+      "group": false,
       "enums": [],
       "messages": [],
       "extensions": null,
@@ -44,6 +45,7 @@
     },
     {
       "name": "Line",
+      "group": false,
       "enums": [],
       "extensions": null,
       "messages": [],

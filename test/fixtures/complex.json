@@ -6,6 +6,7 @@
   "messages": [
     {
       "name": "Person",
+      "group": false,
       "extensions": null,
       "enums": [
         {
@@ -20,6 +21,7 @@
       "messages": [
         {
           "name": "PhoneNumber",
+          "group": false,
           "enums": [],
           "messages": [],
           "extensions": null,
@@ -94,6 +96,7 @@
     },
     {
       "name": "AddressBook",
+      "group": false,
       "enums": [],
       "messages": [],
       "extensions": null,

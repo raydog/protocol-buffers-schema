@@ -62,12 +62,22 @@ var onfield = function (tokens) {
         field.name = tokens.shift()
         break
 
+      case 'group':
+        var group = ongroup(tokens)
+        field.type = group.name
+        field.name = group.name.toLowerCase()
+        field.tag = group.tag
+        field.group = group
+        delete group.tag
+        return field
+
       case 'repeated':
       case 'required':
       case 'optional':
         var t = tokens.shift()
         field.required = t === 'required'
         field.repeated = t === 'repeated'
+        if (tokens[0] === 'group') break
         field.type = tokens.shift()
         field.name = tokens.shift()
         break
@@ -89,6 +99,7 @@ var onfield = function (tokens) {
 }
 
 var onmessagebody = function (tokens) {
+  var field
   var body = {
     enums: [],
     messages: [],
@@ -102,7 +113,12 @@ var onmessagebody = function (tokens) {
       case 'repeated':
       case 'optional':
       case 'required':
-        body.fields.push(onfield(tokens))
+        field = onfield(tokens)
+        body.fields.push(field)
+        if (field.group) {
+          body.messages.push(field.group)
+          delete field.group
+        }
         break
 
       case 'enum':
@@ -124,7 +140,11 @@ var onmessagebody = function (tokens) {
         tokens.shift()
         while (tokens[0] !== '}') {
           tokens.unshift('optional')
-          var field = onfield(tokens)
+          field = onfield(tokens)
+          if (field.group) {
+            body.messages.push(field.group)
+            delete field.group
+          }
           field.oneof = name
           body.fields.push(field)
         }
@@ -170,6 +190,7 @@ var onmessage = function (tokens) {
   var body = []
   var msg = {
     name: tokens.shift(),
+    group: false,
     enums: [],
     messages: [],
     fields: []
@@ -196,6 +217,24 @@ var onmessage = function (tokens) {
   }
 
   if (lvl) throw new Error('No closing tag for message')
+}
+var ongroup = function (tokens) {
+  tokens.shift()
+
+  var name = tokens.shift()
+
+  if (tokens[0] !== '=') throw new Error('Expected = but found ' + tokens[0])
+  tokens.shift()
+
+  var tag = Number(tokens.shift())
+
+  tokens.unshift('message', name)
+
+  var msg = onmessage(tokens)
+  msg.tag = tag
+  msg.group = true
+
+  return msg
 }
 
 var onpackagename = function (tokens) {

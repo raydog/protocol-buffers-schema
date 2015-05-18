@@ -1,0 +1,226 @@
+{
+  "package": null,
+  "imports": [],
+  "enums": [],
+  "messages": [
+    {
+      "name": "OutsideBit",
+      "group": false,
+      "enums": [],
+      "messages": [
+        {
+          "name": "InsideBit",
+          "group": true,
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "blahBlah",
+              "type": "string",
+              "tag": 1,
+              "map": null,
+              "oneof": null,
+              "required": false,
+              "repeated": false,
+              "options": {}
+            }
+          ],
+          "extensions": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "someField",
+          "type": "int32",
+          "tag": 1,
+          "map": null,
+          "oneof": null,
+          "required": true,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "insidebit",
+          "type": "InsideBit",
+          "tag": 2,
+          "map": null,
+          "oneof": null,
+          "required": true,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "lastField",
+          "type": "string",
+          "tag": 3,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        }
+      ],
+      "extensions": null
+    },
+    {
+      "name": "SecondMessage",
+      "group": false,
+      "enums": [],
+      "messages": [
+        {
+          "name": "OnlyGroup",
+          "group": true,
+          "enums": [],
+          "messages": [],
+          "fields": [
+            {
+              "name": "fooBar",
+              "type": "string",
+              "tag": 1,
+              "map": null,
+              "oneof": null,
+              "required": false,
+              "repeated": false,
+              "options": {}
+            }
+          ],
+          "extensions": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "onlygroup",
+          "type": "OnlyGroup",
+          "tag": 2,
+          "map": null,
+          "oneof": null,
+          "required": true,
+          "repeated": false,
+          "options": {}
+        }
+      ],
+      "extensions": null
+    },
+    {
+      "name": "NestingGoneWild",
+      "group": false,
+      "enums": [],
+      "messages": [
+        {
+          "name": "A",
+          "group": true,
+          "enums": [],
+          "messages": [
+            {
+              "name": "B",
+              "group": true,
+              "enums": [],
+              "messages": [
+                {
+                  "name": "C",
+                  "group": true,
+                  "enums": [],
+                  "messages": [
+                    {
+                      "name": "D",
+                      "group": true,
+                      "enums": [],
+                      "messages": [
+                        {
+                          "name": "E",
+                          "group": true,
+                          "enums": [],
+                          "messages": [],
+                          "fields": [
+                            {
+                              "name": "lol",
+                              "type": "boolean",
+                              "tag": 1,
+                              "map": null,
+                              "oneof": null,
+                              "required": false,
+                              "repeated": true,
+                              "options": {}
+                            }
+                          ],
+                          "extensions": null
+                        }
+                      ],
+                      "fields": [
+                        {
+                          "name": "e",
+                          "type": "E",
+                          "tag": 1,
+                          "map": null,
+                          "oneof": null,
+                          "required": false,
+                          "repeated": false,
+                          "options": {}
+                        }
+                      ],
+                      "extensions": null
+                    }
+                  ],
+                  "fields": [
+                    {
+                      "name": "d",
+                      "type": "D",
+                      "tag": 1,
+                      "map": null,
+                      "oneof": null,
+                      "required": true,
+                      "repeated": false,
+                      "options": {}
+                    }
+                  ],
+                  "extensions": null
+                }
+              ],
+              "fields": [
+                {
+                  "name": "c",
+                  "type": "C",
+                  "tag": 1,
+                  "map": null,
+                  "oneof": null,
+                  "required": false,
+                  "repeated": true,
+                  "options": {}
+                }
+              ],
+              "extensions": null
+            }
+          ],
+          "fields": [
+            {
+              "name": "b",
+              "type": "B",
+              "tag": 1,
+              "map": null,
+              "oneof": null,
+              "required": false,
+              "repeated": false,
+              "options": {}
+            }
+          ],
+          "extensions": null
+        }
+      ],
+      "fields": [
+        {
+          "name": "a",
+          "type": "A",
+          "tag": 1,
+          "map": null,
+          "oneof": null,
+          "required": true,
+          "repeated": false,
+          "options": {}
+        }
+      ],
+      "extensions": null
+    }
+  ],
+  "options": {},
+  "extends": []
+}

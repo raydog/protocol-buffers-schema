@@ -76,3 +76,8 @@ tape('schema with map', function (t) {
   t.same(schema.parse(fixture('map.proto')), require('./fixtures/map.json'))
   t.end()
 })
+
+tape('schema with group', function (t) {
+  t.same(schema.parse(fixture('group.proto')), require('./fixtures/group.json'))
+  t.end()
+})
